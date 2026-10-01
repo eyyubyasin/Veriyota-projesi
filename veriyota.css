@@ -18,40 +18,82 @@ body {
     direction: ltr;
     -webkit-font-smoothing: antialiased;
 }
-
-/* NAVBAR STİLLERİ */
+/* NAVBAR GENEL YAPISI */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
+    padding: 12px 5%;
     background-color: #121212;
     border-bottom: 1px solid #2a2a2a;
+    width: 100%;
+    box-sizing: border-box; /* Taşmaları önler */
+    position: relative;
+    z-index: 1000;
 }
 
+/* LOGO VE BAŞLIK */
 .logo {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
+    flex-shrink: 0; /* Logonun büzülmesini engeller */
 }
 
 .logo-img {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
 }
 
-.logo-text {
-    font-size: 1.4rem;
-    font-weight: 600;
-    letter-spacing: 1.1px;
+.logo-text a {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
     color: #ffffff;
+    text-decoration: none;
 }
 
-.nav-links {
+/* MENÜ LİNKLERİ */
+.navbar-menu {
     display: flex;
-    gap: 25px;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Mobilde sığmama durumunda alt satıra geçmesini önlemek için */
 }
+
+.nav-link {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+    white-space: nowrap; /* Kelimelerin bölünmesini engeller */
+}
+
+.nav-link:hover {
+    color: #ffd700;
+}
+
+/* MOBİL ÖZEL HİZALAMA DÜZELTMESİ */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 10px 12px;
+    }
+
+    .logo-text a {
+        font-size: 1.05rem;
+    }
+
+    .navbar-menu {
+        gap: 10px;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+}
+
 
 .nav-links a {
     color: #a0a0a0;
